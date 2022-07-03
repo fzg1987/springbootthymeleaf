@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--    <p th:if="${score}>=90">优秀</p>-->
+<!--    <p th:if="${score}<90">良好</p>-->
+<!--    <p th:unless="${score>=90}">优秀</p>-->
+<!--    <p th:unless="${score<90}">良好</p>-->
+<!--<div th:switch="${studentId}">-->
+<!--    <p th:case="1">张三</p>-->
+<!--    <p th:case="2">李四</p>-->
+<!--    <p th:case="3">王五</p>-->
+<!--</div>-->
+<!-- action -->
+<!--    <form th:action="@{/index/login}" method="post">-->
+<!--        <input type="submit"/>-->
+<!--    </form>-->
+    <form th:action="${url}" method="post">
+        <input type="submit"/>
+    </form>
+</body>
+</html>
