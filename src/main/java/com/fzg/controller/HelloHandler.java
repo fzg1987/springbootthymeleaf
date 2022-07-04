@@ -1,9 +1,14 @@
 package com.fzg.controller;
 
+import com.fzg.entity.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.jws.WebParam;
+import java.util.Arrays;
+import java.util.List;
 
 @Controller
 @RequestMapping("/index")
@@ -50,5 +55,41 @@ public class HelloHandler {
     @ResponseBody
     public String login(){
         return "login";
+    }
+
+    @GetMapping("/each")
+    public ModelAndView each(){
+        List<User> list = Arrays.asList(
+                new User(1,"张三"),
+                new User(2,"李四"),
+                new User(3,"王五"));
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("test");
+        modelAndView.addObject("list",list);
+        return modelAndView;
+    }
+
+    @GetMapping("/value")
+    public ModelAndView value(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("test");
+        modelAndView.addObject("value","Spring Boot");
+        return modelAndView;
+    }
+
+    @GetMapping("/src")
+    public ModelAndView src(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("test");
+//        modelAndView.addObject("src","/1.png");
+        return modelAndView;
+    }
+
+    @GetMapping("/href")
+    public ModelAndView href(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("test");
+        modelAndView.addObject("href","https://www.baidu.com");
+        return modelAndView;
     }
 }
